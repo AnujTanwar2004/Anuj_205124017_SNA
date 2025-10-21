@@ -3,77 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuj Tanwar - SNA Presentation</title>
+    <title>Anuj Tanwar - PageRank Presentation</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7fa;
-            color: #333;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        .hero {
+            height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
             text-align: center;
+            position: relative;
+            padding: 20px;
         }
-        .container {
-            max-width: 500px;
-            padding: 40px;
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e0e0e0;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="20" cy="30" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="70" r="1.5" fill="rgba(255,255,255,0.1)"/><line x1="50" y1="50" x2="20" y2="30" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><line x1="50" y1="50" x2="80" y2="70" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>') repeat;
+            opacity: 0.3;
+            z-index: -1;
         }
         h1 {
-            font-size: 2.2em;
-            margin-bottom: 5px;
-            color: #2c3e50;
+            font-size: 3.5em;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out;
         }
-        p {
-            font-size: 1em;
-            margin-bottom: 40px;
-            color: #7f8c8d;
+        .subtitle {
+            font-size: 1.5em;
+            margin: 0 0 20px 0;
+            font-weight: 300;
+            opacity: 0.9;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        .description {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 0 40px 0;
+            line-height: 1.6;
+            opacity: 0.8;
+            animation: fadeInUp 1.4s ease-out;
         }
         .buttons {
             display: flex;
-            justify-content: space-around;
+            gap: 20px;
             flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 1.6s ease-out;
         }
         .button {
             display: inline-block;
-            padding: 12px 25px;
-            font-size: 1em;
+            padding: 15px 30px;
+            font-size: 1.1em;
             color: #fff;
-            background: #3498db;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 50px;
             transition: all 0.3s ease;
-            margin: 10px;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            font-weight: 500;
         }
         .button:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
         }
         .button.secondary {
-            background: #e74c3c;
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
         }
         .button.secondary:hover {
-            background: #c0392b;
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.6);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            .subtitle {
+                font-size: 1.2em;
+            }
+            .description {
+                font-size: 1em;
+            }
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <section class="hero">
         <h1>Anuj Tanwar</h1>
-        <p>SNA Presentation<br>Roll Number: 205124017</p>
+        <div class="subtitle">SNA Presentation | Roll Number: 205124017</div>
+        <div class="description">
+            Explore the world of PageRank: its applications in search engines and beyond, comparisons with other algorithms like HITS and eigenvector centrality, and real-world use cases in web ranking and recommendation systems. Dive into a hands-on simulation of PageRank on dummy data to understand its mechanics.
+        </div>
         <div class="buttons">
             <a href="https://docs.google.com/presentation/d/1cNUdeMSr9TU2_j-RAfFcupv7VrfyHiW3/edit?usp=sharing&rtpof=true&sd=true" class="button" target="_blank">View the PPT</a>
             <a href="https://colab.research.google.com/drive/1CceqJUgWM2YbyIwdPDGXt25nYzg-etxo?usp=sharing" class="button secondary" target="_blank">See the Demo of the Code</a>
         </div>
-    </div>
+    </section>
 </body>
 </html>
